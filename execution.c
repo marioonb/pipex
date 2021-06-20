@@ -14,10 +14,8 @@
 
 static void	exec_cmd(char **tab, char **env)
 {
-	char	*cpy;
 	int		x;
 
-	cpy = tab[0]; //  pour renvoyer dans l'erreur car get_path supprime
 	x = get_path(tab, env);
 	if (x == 1)
 		execve(tab[0], tab, env);
