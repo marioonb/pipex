@@ -15,7 +15,7 @@ NAME = libft.a
 SRC = ft_strlen.c ft_strncmp.c \
 ft_strdup.c ft_strlcat.c ft_memset.c \
 ft_strlcpy.c ft_split.c ft_bzero.c \
-ft_substr.c ft_strcat.c ft_calloc.c \
+ft_substr.c ft_strcat.c ft_calloc.c ft_putstr_fd.c \
 ft_read_tab_char.c duplicate_tab_char.c free_tab_char.c \
 
 BONUS = $(SRC) ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c\
