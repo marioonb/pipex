@@ -20,7 +20,7 @@ static void	exec_cmd(char **tab, char **env)
 	if (x == 1)
 		execve(tab[0], tab, env);
 	else if (x != -1)
-		printf("error");
+		dprintf(2, "error");
 }
 
 void	exec_cmd1(char *cmd, int filefd, int fd[2], char **env)

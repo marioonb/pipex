@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   duplicate_tab_char.c                               :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelorge <mbelorge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/16 12:26:08 by mbelorge          #+#    #+#             */
-/*   Updated: 2021/02/16 12:27:41 by mbelorge         ###   ########.fr       */
+/*   Created: 2019/11/18 11:37:19 by mbelorge          #+#    #+#             */
+/*   Updated: 2019/11/21 16:04:10 by mbelorge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**duplicate_tab_char(char **envp)
+void	*ft_calloc(size_t count, size_t size)
 {
-	char	**env;
-	int		ligne;
-	int		i;
+	int		*pointeur;
+	int		s;
 
-	env = NULL;
-	ligne = 0;
-	while (envp[ligne] != NULL)
-		ligne++;
-	i = 0;
-	env = malloc(sizeof(char *) * (ligne + 1));
-	if (!env)
+	s = count * size;
+	if (s == 0)
+		s = 1;
+	pointeur = malloc(s);
+	if (pointeur == NULL)
 		return (0);
-	while (i < ligne)
-	{
-		env[i] = ft_strdup(envp[i]);
-		i++;
-	}
-	env[i] = NULL;
-	return (env);
+	ft_bzero(pointeur, s);
+	return (pointeur);
 }

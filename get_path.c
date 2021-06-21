@@ -46,7 +46,7 @@ static char	*check_tab_path(char **path_split, char *bin, char *cmd)
 	i = 0;
 	while (path_split[i])
 	{
-		bin = (char *)calloc(sizeof(char), (ft_strlen(path_split[i]) + 1
+		bin = (char *)ft_calloc(sizeof(char), (ft_strlen(path_split[i]) + 1
 					+ ft_strlen(cmd) + 1));
 		if (bin == NULL)
 			ft_error(2, " ");

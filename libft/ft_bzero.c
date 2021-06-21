@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   duplicate_tab_char.c                               :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbelorge <mbelorge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/16 12:26:08 by mbelorge          #+#    #+#             */
-/*   Updated: 2021/02/16 12:27:41 by mbelorge         ###   ########.fr       */
+/*   Created: 2019/11/04 16:25:56 by mbelorge          #+#    #+#             */
+/*   Updated: 2019/11/21 17:31:07 by mbelorge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**duplicate_tab_char(char **envp)
+void	ft_bzero(void *s, size_t n)
 {
-	char	**env;
-	int		ligne;
-	int		i;
-
-	env = NULL;
-	ligne = 0;
-	while (envp[ligne] != NULL)
-		ligne++;
-	i = 0;
-	env = malloc(sizeof(char *) * (ligne + 1));
-	if (!env)
-		return (0);
-	while (i < ligne)
-	{
-		env[i] = ft_strdup(envp[i]);
-		i++;
-	}
-	env[i] = NULL;
-	return (env);
+	ft_memset(s, 0, n);
 }

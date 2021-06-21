@@ -22,7 +22,22 @@ int	ft_error(int index, char *string)
 		printf("erreur d'ouverture de pipe\n");
 	else if (index == 4)
 		printf("fichier introuvable ou echec ouverture du fichier %s\n", string);
+	else if (index == 5)
+		printf("commande not found");
 	exit(EXIT_FAILURE);
+}
+
+void	check_argument(char **tab)
+{
+	int		i;
+
+	i = 0;
+	while (i < 5)
+	{
+		if (tab[i][0] == '\0')
+			ft_error(5, "");
+		i++;
+	}
 }
 
 void	fill_cmd(char **tab, t_cmd *cmd)
@@ -53,6 +68,7 @@ int	main(int argc, char **argv, char **envp)
 		ft_error(1, "trop");
 	if (argc < 5)
 		ft_error(1, "pas assez");
+	check_argument(argv);
 	fill_cmd(argv, &cmd);
 	pipe(fd);
 	pid = fork();

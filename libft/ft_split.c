@@ -55,8 +55,8 @@ char	**ft_split(char const*s, char c)
 	i = 0;
 	if (!s)
 		return (0);
-	word = comptword((char*)s, c);
-	resultat = (char**)malloc(sizeof(char*) * (word + 1));
+	word = comptword((char *)s, c);
+	resultat = (char **)malloc(sizeof(char *) * (word + 1));
 	if (!resultat)
 		return (0);
 	while (i < word)
@@ -64,7 +64,7 @@ char	**ft_split(char const*s, char c)
 		caractere = 0;
 		while (*s && *s == c)
 			s++;
-		caractere = comptcaractere((char*)s, c);
+		caractere = comptcaractere((char *)s, c);
 		resultat[i] = ft_substr(s, 0, caractere);
 		while (*s && *s != c)
 			s++;
