@@ -23,21 +23,20 @@ int	ft_error(int index, char *string)
 	else if (index == 4)
 		printf("fichier introuvable ou echec ouverture du fichier %s\n", string);
 	else if (index == 5)
-		printf("commande not found");
+		printf("command not found");
+	else if (index == 6)
+		printf("permission non accordee");
 	exit(EXIT_FAILURE);
 }
 
 void	check_argument(char **tab)
 {
-	int		i;
-
-	i = 0;
-	while (i < 5)
-	{
-		if (tab[i][0] == '\0')
-			ft_error(5, "");
-		i++;
-	}
+	if (tab[2][0] == ' ')
+		ft_error(5, tab[2]);
+	if (tab[3][0] == ' ')
+		ft_error(5, tab[3]);
+	if (tab[2][0] == '\0' || tab[3][0] == '\0')
+		ft_error(6, "");
 }
 
 void	fill_cmd(char **tab, t_cmd *cmd)
